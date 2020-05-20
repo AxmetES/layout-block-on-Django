@@ -1,16 +1,6 @@
-<!DOCTYPE html>
+{% extends 'blog-base.html' %}
 {% load static %}
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Remake Barber - Blog Details</title>
-	<link rel="icon" href="img/favicon.png" type="image/png">
-
-  <link rel="stylesheet" href="{%static '/styles.min.css'%}">
-</head>
-<body>
+{% block content %}
   <!--================Header Menu Area =================-->
   <header class="header_area">
     <div class="main_menu">
@@ -98,60 +88,28 @@
                <a href="#"><i class="fab fa-behance"></i></a>
              </div>
                </div>
-              </div>
-                <div class="comments-area">
-                    <h4>{{post.comments|length}} Comments</h4>
-                  {% for comment in post.comments %}
-                    <div class="comment-list">
-                        <div class="single-comment justify-content-between d-flex">
-                            <div class="user justify-content-between d-flex">
-                                <div class="desc">
-                                    <h5><a href="#">{{comment.author}}</a></h5>
-                                    <p class="date">{{comment.published_at}}</p>
-                                    <p class="comment">
-                                      {{comment.text}}
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="reply-btn">
-                                    <a href="" class="btn-reply text-uppercase">reply</a>
-                            </div>
-                        </div>
-                    </div>
-                  {% endfor %}
-<!--                    <div class="comment-list">-->
-<!--                        <div class="single-comment justify-content-between d-flex">-->
-<!--                            <div class="user justify-content-between d-flex">-->
-<!--                                <div class="desc">-->
-<!--                                    <h5><a href="#">Maria Luna</a></h5>-->
-<!--                                    <p class="date">December 4, 2017 at 3:12 pm </p>-->
-<!--                                    <p class="comment">-->
-<!--                                        Never say goodbye till the end comes!-->
-<!--                                    </p>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="reply-btn">-->
-<!--                                    <a href="" class="btn-reply text-uppercase">reply</a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="comment-list">-->
-<!--                        <div class="single-comment justify-content-between d-flex">-->
-<!--                            <div class="user justify-content-between d-flex">-->
-<!--                                <div class="desc">-->
-<!--                                    <h5><a href="#">Ina Hayes</a></h5>-->
-<!--                                    <p class="date">December 4, 2017 at 3:12 pm </p>-->
-<!--                                    <p class="comment">-->
-<!--                                        Never say goodbye till the end comes!-->
-<!--                                    </p>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="reply-btn">-->
-<!--                                    <a href="" class="btn-reply text-uppercase">reply</a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
                 </div>
+                  <div class="comments-area">
+                      <h4>{{post.comments|length}} Comments</h4>
+                    {% for comment in post.comments %}
+                      <div class="comment-list">
+                          <div class="single-comment justify-content-between d-flex">
+                              <div class="user justify-content-between d-flex">
+                                  <div class="desc">
+                                      <h5><a href="#">{{comment.author}}</a></h5>
+                                      <p class="date">{{comment.published_at}}</p>
+                                      <p class="comment">
+                                        {{comment.text}}
+                                      </p>
+                                  </div>
+                              </div>
+                              <div class="reply-btn">
+                                      <a href="" class="btn-reply text-uppercase">reply</a>
+                              </div>
+                          </div>
+                      </div>
+                    {% endfor %}
+                  </div>
         </div>
 
 
@@ -253,5 +211,4 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
   <!--================ End Footer Area =================-->
 
   <script src="{%static '/scripts.js'%}"></script>
-</body>
-</html>
+{% endblock %}
