@@ -1,23 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Remake Barber - Contact</title>
-	<link rel="icon" href="img/favicon.png" type="image/png">
+{% extends 'blog-base.html' %}
+{% block title %}Sensive Blog - Contact{% endblock %}
+{% load static %}
+{% block content %}
 
-
-  <link rel="stylesheet" href="/home/olga/Desktop/Мои проекты/блог/styles.min.css">
-</head>
-<body>
   <!--================Header Menu Area =================-->
   <header class="header_area">
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container box_1620">
           <!-- Brand and toggle get grouped for better mobile display -->
-          <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
+          <a class="navbar-brand logo_h" href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}" alt=""></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -26,8 +18,8 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav justify-content-center">
-              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-              <li class="nav-item active"><a class="nav-link" href="contact.html">Contact</a></li>
+              <li class="nav-item" STYLE="color:3a414e;"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+              <li class="nav-item active"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right navbar-social">
               <li><a href="#"><i class="ti-facebook"></i></a></li>
@@ -35,14 +27,14 @@
               <li><a href="#"><i class="ti-instagram"></i></a></li>
               <li><a href="#"><i class="ti-skype"></i></a></li>
             </ul>
-          </div> 
+          </div>
         </div>
       </nav>
     </div>
   </header>
   <!--================Header Menu Area =================-->
-  
-  <!--================ Hero sm banner start =================-->  
+
+  <!--================ Hero sm banner start =================-->
   <section class="mb-30px">
     <div class="container">
       <div class="hero-banner hero-banner--sm">
@@ -58,17 +50,15 @@
       </div>
     </div>
   </section>
-  <!--================ Hero sm banner end =================-->  
+  <!--================ Hero sm banner end =================-->
 
 
   <!-- ================ contact section start ================= -->
   <section class="section-margin--small section-margin">
     <div class="container">
-      <div class="d-none d-sm-block mb-5 pb-4">
-        Тут будет карта
-      </div>
-
-
+        <div class="d-none d-sm-block mb-5 pb-4">
+          {{ html_map|safe|escape }}
+        </div>
       <div class="row">
         <div class="col-md-4 col-lg-3 mb-4 mb-md-0">
           <div class="media contact-info">
@@ -123,7 +113,7 @@
   </section>
 	<!-- ================ contact section end ================= -->
 
-  
+
 
 
   <!--================ Start Footer Area =================-->
@@ -200,5 +190,5 @@
   <!--================ End Footer Area =================-->
 
   <script src="/home/olga/Desktop/Мои проекты/блог/scripts.js"></script>
-</body>
-</html>
+
+{% endblock %}
