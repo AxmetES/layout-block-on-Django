@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 {% extends 'blog-base.html' %}
 {% block title %}Sensive Blog - Home{% endblock %}
 {% load static %}
@@ -58,7 +60,11 @@
         <div class="flex-fill" style="margin-right: 30px;">
           <div class="card blog__slide text-center">
             <div class="blog__slide__img">
-              <img class="card-img rounded-0" src="{{post.image_url}}" alt="">
+              {% if post.image_url%}
+                <img class="card-img rounded-0" src="{{post.image_url}}" alt="">
+              {% else %}
+                <img class="card-img rounded-0" src="{% static 'img/banner/blog.png' %}" alt="">
+              {% endif %}
             </div>
             <div class="blog__slide__content">
               <h3><a href="{% url 'post_detail' slug=post.slug %}">{{post.title}}</a></h3>
