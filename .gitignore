@@ -4,5 +4,7 @@
 /blog/migrations/__pycache__
 /blog/__pycache__
 /.idea
+/media
+db.sqlite3
 .env
 
